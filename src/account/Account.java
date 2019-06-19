@@ -13,34 +13,42 @@ public class Account {
 
     
         private double balance;
-        private double interestRate=0.23;
-        private String user;
+        private final double interestRate=0.23;
+        private final String user;
+        private double deposit;
  
      /**constructor that takes the initial balance
       * @param initialBalance 
+     * @param givenUser 
       */
         public Account(double initialBalance,String givenUser)
         {
-            balance=initialBalance;
-            user=givenUser;
+            this.user=givenUser;
+            if (50 >= balance)
+          this.balance=initialBalance;
+            
             //Note that the initial balance must be greater than 50.       
         }
 
-     /**The method for depositing amount and 
-      * updating balance*/
+     /**The method for depositing amount and
+     * @param depositAmount */
+        
+         public void deposit(double depositAmount)      {                                                                
+       if (depositAmount < 50.0) // if the depositAmount is valid 
+           
+       {System.out.println("This InitiaL balance should be greater than 50");}
+            balance = balance + depositAmount; // add it to the balance
+      }     
+     // * updating balance
         public void credit(double amount)
         {
-            balance=getBalance()+amount;
+            balance=getBalance()+ amount * getInterestRate();
+           
         }
 
      /**The method for debit(withdrawing amount) and 
       * updating balance */
-        public void debit(double amount)
-        {
-            balance=getBalance()-amount;
-
-        }
-        
+               
      /**The getter for the balance
      * @return the balance
      */
