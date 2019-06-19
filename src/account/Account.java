@@ -45,6 +45,7 @@ public class Account {
             balance=getBalance()+ amount * getInterestRate();
            
         }
+       
 
      /**The method for debit(withdrawing amount) and 
       * updating balance */
@@ -64,6 +65,7 @@ public class Account {
         {
             return interestRate;
         }
+       
 
     /**user is the read only field
      * @return the user
